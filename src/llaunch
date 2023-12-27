@@ -9,11 +9,8 @@ END="\033[0m"
 
 update() {
   echo -e "\n${GREEN}Downloading the latest version...${END}"
-  curl https://llaun.ch/jar -o /tmp/jar
-  unzip /tmp/jar -d /tmp/llaunch
-  sudo mv /tmp/llaunch/*.jar /usr/share/llaunch/llaunch.jar
-  rm /tmp/jar
-  rm -rf /tmp/llaunch/
+  curl https://llaun.ch/repo/downloads/LegacyLauncher_legacy.jar -o /tmp/llaunch.jar
+  sudo mv /tmp/llaunch.jar /usr/share/llaunch/llaunch.jar
   echo -e "\n${GREEN}Done!${END}"
 }
 
