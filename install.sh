@@ -2,8 +2,6 @@
 
 [[ "$(whoami)" = "root" ]] && echo "Script must be run as a normal user." && exit
 
-[[ "$(whereis paru)" = "paru:" ]] && echo "paru must be installed to use AUR packages." && exit
-
 # Colors
 GREEN="\033[1;32m"
 END="\033[0m"
@@ -12,7 +10,17 @@ END="\033[0m"
 pkgs=(
 	zulu-21-bin
 )
-# paru -S "${pkgs[@]}"
+
+if [ ! "$(whereis paru)" = "paru:" ]
+then
+	paru -S "${pkgs[@]}"
+elif [ ! "$(whereis yay)" = "yay:" ]
+then
+ 	yay -S "${pkgs[@]}"
+else
+	echo "Either paru or yay must be installed first!"
+ 	exit
+fi
 
 # Downloading Legacy Launcher
 echo -e "\nDownloading ${GREEN}Legacy Launcher${END}..."
