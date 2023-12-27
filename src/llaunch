@@ -44,7 +44,7 @@ case "$1" in
     update ; exit ;;
   -r|--remove|remove)
     remove ; exit ;;
-  *)
+  -h|--help|help)
     usage  ; exit ;;
 esac
 
