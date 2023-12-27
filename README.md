@@ -2,19 +2,12 @@
 This is a [Legacy Launcher](https://llaun.ch/en) installer that installs Legacy Launhcer to your Arch Linux system.
 
 ## How to install
-
-1. Clone and enter the repo
-    ```c 
-    git clone https://github.com/MatheusTT/tlauncher-arch.git && cd tlauncher-arch
-    ```
-2. Change the permissions of the script
-    ```c 
-    chmod +x ./install.sh
-    ```
-3. Install Legacy Launcher
-    ```c
-    ./install.sh
-    ```
+```bash
+git clone https://github.com/Loominagit/legacy-launcher-arch
+cd legacy-launcher-arch
+chmod +x ./install.sh
+./install.sh
+```
 
 ## Usage
 After the installation, you can just type `llaunch` in the terminal to launch Legacy Launcher.
