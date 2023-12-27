@@ -19,7 +19,7 @@ usage() {
   Usage:
     --update, update | Update llaunch.jar
     --remove, remove | Remove llaunch from your system, except your \$HOME/.minecraft dir 
-    nothing          | Launch TLauncher
+    nothing          | Launch Legacy Launcher
   "
 }
 
@@ -30,7 +30,7 @@ remove() {
     /usr/share/applications/llaunch.desktop
     /usr/bin/llaunch
   )
-  echo -e "\n${GREEN}Removing Legachy Launcher system files...${END}"
+  echo -e "\n${GREEN}Removing Legacy Launcher system files...${END}"
   rm -rf "${SYSTEM_FILES[@]}"
   echo -en "\nDo you want to keep all those java packages installed (${GREEN}Yy${END}/${RED}Nn${END})?" && read -r KEEP_JAVA
   echo -en "\nDo you want to keep your \$HOME/.tlauncher dir (${GREEN}Yy${END}/${RED}Nn${END})?" && read -r KEEP_DOTDIR
