@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Name=TLauncher
+Name=Legacy Launcher
 Keywords=game;strategy;
-Comment=Minecraft is a sandbox video game developed by Mojang
-Icon=tlauncher
-Exec=tlauncher
+Comment=Minecraft Launcher
+Icon=llaunch
+Exec=llaunch
 Terminal=false
 StartupNotify=false
 Categories=Game;AdventureGame;
