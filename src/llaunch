@@ -9,35 +9,35 @@ END="\033[0m"
 
 update() {
   echo -e "\n${GREEN}Downloading the latest version...${END}"
-  wget https://tlauncher.org/jar -P /tmp
-  unzip /tmp/jar -d /tmp/tlauncher
-  sudo mv /tmp/tlauncher/*.jar /usr/share/tlauncher/tlauncher.jar
+  curl https://llaun.ch/jar -o /tmp/jar
+  unzip /tmp/jar -d /tmp/llaunch
+  sudo mv /tmp/llaunch/*.jar /usr/share/llaunch/llaunch.jar
   rm /tmp/jar
-  rm -rf /tmp/tlauncher/
+  rm -rf /tmp/llaunch/
   echo -e "\n${GREEN}Done!${END}"
 }
 
 usage() {
   echo "
   Usage:
-    --update, update | Update tlauncher.jar
-    --remove, remove | Remove tlauncher from your system, except your \$HOME/.minecraft dir 
+    --update, update | Update llaunch.jar
+    --remove, remove | Remove llaunch from your system, except your \$HOME/.minecraft dir 
     nothing          | Launch TLauncher
   "
 }
 
 remove() {
   SYSTEM_FILES=(
-    /usr/share/tlauncher
-    /usr/share/icons/tlauncher.png
-    /usr/share/applications/tlauncher.desktop
-    /usr/bin/tlauncher
+    /usr/share/llaunch
+    /usr/share/icons/llaunch.png
+    /usr/share/applications/llaunch.desktop
+    /usr/bin/llaunch
   )
-  echo -e "\n${GREEN}Removing TLauncher system files...${END}"
+  echo -e "\n${GREEN}Removing Legachy Launcher system files...${END}"
   rm -rf "${SYSTEM_FILES[@]}"
   echo -en "\nDo you want to keep all those java packages installed (${GREEN}Yy${END}/${RED}Nn${END})?" && read -r KEEP_JAVA
   echo -en "\nDo you want to keep your \$HOME/.tlauncher dir (${GREEN}Yy${END}/${RED}Nn${END})?" && read -r KEEP_DOTDIR
-  [[ "${KEEP_JAVA,,}" = "n" ]] && sudo pacman -Rns jdk-openjdk jre-openjdk{,-headless} java-openjfx
+  [[ "${KEEP_JAVA,,}" = "n" ]] && sudo pacman -Rns zulu-21-bin
   [[ "${KEEP_DOTDIR,,}" = "n" ]] && rm -rf "$HOME/.tlauncher"
 }
 
@@ -52,4 +52,4 @@ case "$1" in
 esac
 
 
-java -jar /usr/share/tlauncher/tlauncher.jar
+java -jar /usr/share/llaunch/llaunch.jar
