@@ -32,9 +32,7 @@ remove() {
   )
   echo -e "\n${GREEN}Removing Legacy Launcher system files...${END}"
   rm -rf "${SYSTEM_FILES[@]}"
-  echo -en "\nDo you want to keep all those java packages installed (${GREEN}Yy${END}/${RED}Nn${END})?" && read -r KEEP_JAVA
   echo -en "\nDo you want to keep your \$HOME/.tlauncher dir (${GREEN}Yy${END}/${RED}Nn${END})?" && read -r KEEP_DOTDIR
-  [[ "${KEEP_JAVA,,}" = "n" ]] && sudo pacman -Rns zulu-21-bin
   [[ "${KEEP_DOTDIR,,}" = "n" ]] && rm -rf "$HOME/.tlauncher"
 }
 
