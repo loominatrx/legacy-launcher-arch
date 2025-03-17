@@ -6,22 +6,6 @@
 GREEN="\033[1;32m"
 END="\033[0m"
 
-# Downloading packages
-pkgs=(
-	zulu-21-bin
-)
-
-if [ ! "$(whereis paru)" = "paru:" ]
-then
-	paru -S "${pkgs[@]}"
-elif [ ! "$(whereis yay)" = "yay:" ]
-then
- 	yay -S "${pkgs[@]}"
-else
-	echo "Either paru or yay must be installed first!"
- 	exit
-fi
-
 # Downloading Legacy Launcher
 echo -e "\nDownloading ${GREEN}Legacy Launcher${END}..."
 
